@@ -43,12 +43,22 @@ public class PersonController {
 	
 	@PostMapping("/persons/")
 	public void addPerson(@RequestBody Person person) throws IOException {
-		personService.addPerson(person);
+		try {
+			personService.addPerson(person);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	@DeleteMapping("/persons/{id}")
 	public void deletePerson(@PathVariable("id") int id) throws PersonCanNotBeDeletedException {
-		personService.deletePerson(id);
+		try {
+			personService.deletePerson(id);
+		} catch (PersonCanNotBeDeletedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 	
