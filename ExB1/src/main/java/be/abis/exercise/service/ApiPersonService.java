@@ -21,7 +21,7 @@ public class ApiPersonService implements PersonService {
 	
 	@Override
 	public ArrayList<Person> getAllPersons() {
-		// TODO Auto-generated method stub
+
 		return null;
 	}
 
@@ -43,20 +43,17 @@ public class ApiPersonService implements PersonService {
 
 	@Override
 	public void addPerson(Person p) throws IOException {
-		// TODO Auto-generated method stub
-
+		restTemplate.postForObject(baseUri+"/persons", p, Void.class);
 	}
 
 	@Override
 	public void deletePerson(int id) throws PersonCanNotBeDeletedException {
-		// TODO Auto-generated method stub
-
+		restTemplate.delete(baseUri+"/persons/"+id, Void.class);
 	}
 
 	@Override
 	public void changePassword(Person p, String newPswd) throws IOException {
-		// TODO Auto-generated method stub
-
+		restTemplate.put(baseUri+"/persons/"+p.getPersonId(), p, newPswd, Void.class);
 	}
 
 }

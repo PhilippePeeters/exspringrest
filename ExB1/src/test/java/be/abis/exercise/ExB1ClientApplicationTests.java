@@ -48,8 +48,8 @@ public class ExB1ClientApplicationTests {
 	@Test
 	public void testFindPersonByLogin() {
 		Login login = new Login();
-		login.setEmail("");
-		login.setPassword("");
+		login.setEmail("mjones@abis.be");
+		login.setPassword("abc123");
 		Person person = restTemplate.postForObject(baseUrl+"/login", login, Person.class);
 		System.out.println("Person : " + person.getFirstName());
 		assertNotNull(person);
