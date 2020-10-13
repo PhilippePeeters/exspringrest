@@ -18,7 +18,7 @@ import be.abis.exercise.service.PersonService;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-@ActiveProfiles("development")
+@ActiveProfiles("production")
 public class ExB1ClientApplicationTests {
 
 	@Autowired 
