@@ -10,6 +10,8 @@ import org.springframework.web.client.RestTemplate;
 import be.abis.exercise.exception.PersonCanNotBeDeletedException;
 import be.abis.exercise.model.Login;
 import be.abis.exercise.model.Person;
+import be.abis.exercise.model.PersonsList;
+
 
 @Service
 public class ApiPersonService implements PersonService {
@@ -21,8 +23,9 @@ public class ApiPersonService implements PersonService {
 	
 	@Override
 	public ArrayList<Person> getAllPersons() {
-
-		return null;
+		PersonsList personsList = restTemplate.getForObject(baseUri, PersonsList.class);
+		System.out.println(personsList.getPersons().size());
+		return personsList.getPersons();
 	}
 
 	@Override

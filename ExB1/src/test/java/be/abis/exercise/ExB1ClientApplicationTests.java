@@ -13,6 +13,7 @@ import org.springframework.web.client.RestTemplate;
 
 import be.abis.exercise.model.Login;
 import be.abis.exercise.model.Person;
+import be.abis.exercise.model.PersonsList;
 import be.abis.exercise.service.CourseService;
 import be.abis.exercise.service.PersonService;
 
@@ -36,6 +37,15 @@ public class ExB1ClientApplicationTests {
 	public void contextLoads() {
 	}
 
+	@Test
+	public void testAllPersons() {
+		PersonsList personsList = restTemplate.getForObject(baseUrl, PersonsList.class);
+		System.out.println(personsList.getPersons().size());
+		assertNotNull(personsList);
+//		assertEquals("Mary", person.getFirstName());
+	}
+
+	
 	@Test
 	public void testFindPersonById() {
 		int id=2;
