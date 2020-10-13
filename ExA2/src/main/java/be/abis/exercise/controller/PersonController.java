@@ -29,13 +29,13 @@ public class PersonController {
 		return personService.findPerson(id);
 	}
 
-	@GetMapping("/persons/")
+	@GetMapping("/persons")
 	public List<Person> getAllPersons() {
 		return personService.getAllPersons();
 		
 	}
 	
-	@PostMapping("/persons/")
+	@PostMapping("/persons")
 	public void addPerson(@RequestBody Person person) throws IOException {
 		try {
 			personService.addPerson(person);
@@ -56,7 +56,7 @@ public class PersonController {
 		
 	}
 
-	@GetMapping("/persons/login")
+	@PostMapping("/persons/login")
 	public Person findPerson(@RequestBody LoginItem loginItem ) {
 		return personService.findPerson(loginItem.getEmail(), loginItem.getPassword());
 		
