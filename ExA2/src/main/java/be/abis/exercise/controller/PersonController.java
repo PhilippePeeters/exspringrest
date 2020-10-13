@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import be.abis.exercise.exception.PersonCanNotBeDeletedException;
+import be.abis.exercise.model.LoginItem;
 import be.abis.exercise.model.Person;
 import be.abis.exercise.service.PersonService;
 
@@ -55,15 +56,14 @@ public class PersonController {
 		
 	}
 
-	@GetMapping("/persons/{email}/{passWord}")
-	public Person findPerson(@PathVariable("email") String emailAddress, @PathVariable("passWord") String passWord) {
-		return personService.findPerson(emailAddress, passWord);
+	@GetMapping("/persons/login")
+	public Person findPerson(@RequestBody LoginItem loginItem ) {
+		return personService.findPerson(loginItem.getEmail(), loginItem.getPassword());
 		
 	}
 
-	@PutMapping("/password/{person}/{passWord}")
-	public void changePassword(@RequestBody Person person, @PathVariable("passWord") String newPswd) throws IOException {
-		personService.changePassword(person, newPswd);
-		
+	@PutMapping("/persons/{id}")
+	public void changePassword(@PathVariable("id") int id, @RequestBody Person person)  throws IOException {
+		personService.changePassword(person, person.getPassword());
 	}
 }
