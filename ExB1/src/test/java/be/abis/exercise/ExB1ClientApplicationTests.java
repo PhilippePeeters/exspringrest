@@ -13,6 +13,7 @@ import org.springframework.web.client.RestTemplate;
 
 import be.abis.exercise.model.Login;
 import be.abis.exercise.model.Person;
+import be.abis.exercise.service.CourseService;
 import be.abis.exercise.service.PersonService;
 
 @RunWith(SpringRunner.class)
@@ -22,6 +23,9 @@ public class ExB1ClientApplicationTests {
 
 	@Autowired 
 	PersonService  personService;
+	
+	@Autowired
+	CourseService CourseService;
 	
 	@Autowired
 	private RestTemplate restTemplate;
