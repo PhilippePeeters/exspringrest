@@ -1,7 +1,6 @@
 package be.abis.exercise.model;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class PersonsList {
     private ArrayList<Person> persons;
