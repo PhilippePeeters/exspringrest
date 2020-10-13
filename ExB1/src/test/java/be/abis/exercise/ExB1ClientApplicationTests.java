@@ -25,6 +25,7 @@ public class ExB1ClientApplicationTests {
 	
 	@Autowired
 	private RestTemplate restTemplate;
+	
 	private String baseUrl="http://localhost:8085/exercise/api/persons";
 	
 	@Test

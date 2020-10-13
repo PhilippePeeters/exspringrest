@@ -14,6 +14,7 @@ public class AbisCourseService implements CourseService {
 	@Autowired
 	private CourseRepository courseRepository;
 	
+	
 	@Override
 	public List<Course> findAllCourses() {
 		return courseRepository.findAllCourses();
